@@ -1,4 +1,4 @@
-## Flix Part 2
+## Flixster Part 2
 
 ### User Stories
 
