@@ -14,7 +14,7 @@ UITableViewDelegate{
         return movies.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell")
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         cell.textLabel!.text = title
