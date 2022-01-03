@@ -33,5 +33,5 @@
 
 ### App Walkthrough GIF
 
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+![TtbMTZEx8t](https://user-images.githubusercontent.com/79591114/147973784-aa43bd3e-aba0-4386-a671-72acf258d707.gif)
 
