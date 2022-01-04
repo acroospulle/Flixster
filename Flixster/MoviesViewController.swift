@@ -11,24 +11,7 @@ import AlamofireImage
 class MoviesViewController: UIViewController,UITableViewDataSource,
 UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
-        let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let synopsis = movie["overview"] as! String
-        cell.titleLabel.text = title
-        cell.synopsisLabel.text = synopsis
-        
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL(string: baseUrl+posterPath)
-        
-        cell.posterView.af_setImage(withURL: posterUrl!)
-        return cell
-    }
+  
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -52,17 +35,37 @@ UITableViewDelegate{
                  self.movies = dataDictionary["results"] as! [[String : Any]]
                  self.tableView.reloadData()
                  print(dataDictionary)
-
-                    // TODO: Get the array of movies
-                    // TODO: Store the movies in a property to use elsewhere
-                    // TODO: Reload your table view data
-
              }
         }
         task.resume()
-        
     }
-
-
+        
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return movies.count
+        }
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
+            let movie = movies[indexPath.row]
+            let title = movie["title"] as! String
+            let synopsis = movie["overview"] as! String
+            cell.titleLabel.text = title
+            cell.synopsisLabel.text = synopsis
+            
+            let baseUrl = "https://image.tmdb.org/t/p/w185"
+            let posterPath = movie["poster_path"] as! String
+            let posterUrl = URL(string: baseUrl+posterPath)
+            
+            cell.posterView.af_setImage(withURL: posterUrl!)
+            return cell
+            }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableview.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+    }
 }
+
 
