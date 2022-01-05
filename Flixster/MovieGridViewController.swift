@@ -32,7 +32,9 @@ class MovieGridViewController: UIViewController,UICollectionViewDataSource,UICol
              } else if let data = data {
                     let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                  self.movies = dataDictionary["results"] as! [[String : Any]]
-                 print(self.movies)
+                 
+                 self.collectionView.reloadData()
+                
              }
         }
         task.resume()
@@ -51,9 +53,11 @@ class MovieGridViewController: UIViewController,UICollectionViewDataSource,UICol
         
         
         let movie = movies[indexPath.item]
-        let baseUrl = "https://image.tmb.org/t/p/w185"
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
         let posterUrl = URL(string: baseUrl + posterPath)
+        
         cell.posterView.af_setImage(withURL: posterUrl!)
         
         
