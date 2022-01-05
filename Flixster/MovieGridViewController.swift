@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieGridViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
@@ -47,6 +48,16 @@ class MovieGridViewController: UIViewController,UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        
+        
+        let movie = movies[indexPath.item]
+        let baseUrl = "https://image.tmb.org/t/p/w185"
+        let posterPath = movie["poster_path"] as! String
+        let posterUrl = URL(string: baseUrl + posterPath)
+        cell.posterView.af_setImage(withURL: posterUrl!)
+        
+        
         return cell
+        
     }
 }
