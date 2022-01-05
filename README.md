@@ -10,7 +10,8 @@
 ### App Walkthrough GIF
 
 
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+
+![TnOCl1xy9E](https://user-images.githubusercontent.com/79591114/148260576-b1daa129-aafb-4e24-9ff1-e332fdf98f38.gif)
 
 
 
