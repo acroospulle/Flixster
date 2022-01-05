@@ -1,4 +1,4 @@
-## Flixster Part 2
+## Flixster Part II
 
 ### User Stories
 
@@ -24,7 +24,7 @@
 
 
 
-## Flixster Part 1
+## Flixster Part I
 
 
 #### REQUIRED (10pts)
